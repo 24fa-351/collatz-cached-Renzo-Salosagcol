@@ -1,0 +1,10 @@
+all: main
+
+main: main.c config.h collatz.h
+	gcc -o main main.c
+
+clean:
+	rm main
+
+test: main
+	bash test.sh

@@ -1,0 +1,19 @@
+all: all_programs
+
+all_programs: main collatz config
+	gcc -o all_programs main collatz config
+
+main: main.c collatz.h config.h
+	gcc -o main main.c
+
+collatz: collatz.c collatz.h
+	gcc -c collatz.c
+
+config: collatz.c collatz.h
+	gcc -c collatz.c
+
+clean:
+	rm main
+
+test: main
+	bash test.sh
