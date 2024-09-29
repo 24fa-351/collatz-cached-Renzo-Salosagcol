@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "config.h"
+#include "config.c"
 
 int main (int argc, char *argv[]) {
   Config config = configure_parameters(argv);
