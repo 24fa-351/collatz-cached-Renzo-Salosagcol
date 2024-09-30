@@ -1,0 +1,19 @@
+all: app
+
+app: main config collatz
+	gcc -o app main config collatz
+
+main: main.c config.h collatz.h
+	cc -o main.c
+
+config: config.h config.c
+	cc -o config.c
+
+collatz: collatz.h collatz.c
+	cc -o collatz.c
+
+clean:
+	rm main
+
+test: main
+	bash test.sh

@@ -1,0 +1,23 @@
+CC = gcc
+CFLAGS = -Wall -Wextra -std=c11
+
+OBJS = main.o collatz.o config.o
+
+TARGET = collatz_program
+
+all: $(TARGET)
+
+$(TARGET): $(OBJS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
+
+main.o: main.c collatz.h config.h
+	$(CC) $(CFLAGS) -c main.c
+
+collatz.o: collatz.c collatz.h
+	$(CC) $(CFLAGS) -c collatz.c
+
+config.o: config.c config.h
+	$(CC) $(CFLAGS) -c config.c
+
+clean:
+	rm -f $(OBJS) $(TARGET)
