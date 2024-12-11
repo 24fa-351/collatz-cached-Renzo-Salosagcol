@@ -1,0 +1,21 @@
+CC = gcc
+
+all: main
+
+main: main.c config.o collatz.o caching.o
+	$(CC) -o main main.c config.o collatz.o
+
+config.o: config.c
+	$(CC) -c config.c -o config.o
+
+collatz.o: collatz.c
+	$(CC) -c collatz.c -o collatz.o
+
+caching.o: caching.c
+	$(CC) -c caching.c -o caching.o
+
+clean:
+	rm -f main config.o collatz.o collatz_result.csv
+
+test: main
+	bash test.sh
