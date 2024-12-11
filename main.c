@@ -8,6 +8,11 @@
 #include "cache.h"
 
 int main (int argc, char *argv[]) {
+  if (argc != 4) {
+    printf("Usage: %s <tests_num> <min> <max>\n", argv[0]);
+    return 1;
+  }
+  
   Config config = configure_parameters(argv);
 
   char *policy = "lru";
